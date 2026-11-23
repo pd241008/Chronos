@@ -11,11 +11,14 @@
 // program. To stay verifier-safe, classification runs in userspace; the eBPF
 // program captures the pre-image extent metadata + leading bytes.
 //
-// Build:
-//   clang -target bpf -O2 -g -Wall -Wextra -D__TARGET_ARCH_x86 \
-#     -I/lib/modules/$(uname -r)/build/include \
-#     -I/lib/modules/$(uname -r)/build/include/asm \
-#     -I. -c chronos_bpf.c -o chronos_bpf.o
+// Build (host):
+/*
+   clang -target bpf -O2 -g -Wall -Wextra -D__TARGET_ARCH_x86 \
+     -I/lib/modules/$(uname -r)/build/include \
+     -I/lib/modules/$(uname -r)/build/include/asm \
+     -I. -c chronos_bpf.c -o chronos_bpf.o
+*/
+
 
 #ifndef __CHRONOS_BPF_H__
 #define __CHRONOS_BPF_H__
