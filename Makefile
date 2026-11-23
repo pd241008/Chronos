@@ -1,14 +1,29 @@
-#!/usr/bin/env bash
 # Chronos top-level build
+#
+#   make            build kernel eBPF + Go daemon
+#   make test       run kernel unit/integration/systems/e2e tests
+#   make test-kernel run only the kernel test tier
 
-set -euo pipefail
+ROOT := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+.PHONY: all test test-kernel kernel go loader clean
 
-echo "[chronos] Building kernel eBPF..."
-make -C "$ROOT/kernel/ebpf"
+all: kernel go
 
-echo "[chronos] Building Go daemon..."
-(cd "$ROOT/go" && go build -o chronosd .)
+kernel:
+	$(MAKE) -C $(ROOT)/kernel/ebpf
 
-echo "[chronos] Build complete."
+loader:
+	$(MAKE) -C $(ROOT)/kernel/ebpf loader
+
+go:
+	cd $(ROOT)/go && go build -o chronosd .
+
+test: test-kernel
+
+test-kernel:
+	$(MAKE) -C $(ROOT)/kernel/ebpf test
+
+clean:
+	$(MAKE) -C $(ROOT)/kernel/ebpf clean
+	rm -f $(ROOT)/go/chronosd

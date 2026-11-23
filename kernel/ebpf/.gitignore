@@ -1,0 +1,7 @@
+*.o
+*.tmp
+build.err
+test/unit
+test/integration
+test/systems
+test/e2e
