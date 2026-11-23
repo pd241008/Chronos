@@ -1,1 +1,20 @@
-artifact/*
+# Build artifacts
+*.o
+*.tmp
+*.a
+*.so
+
+# Test binaries
+kernel/ebpf/test/unit
+kernel/ebpf/test/integration
+kernel/ebpf/test/systems
+kernel/ebpf/test/e2e
+
+# Go
+go/chronosd
+
+# Pinned eBPF maps (runtime)
+/sys/fs/bpf/chronos_ringbuf
+
+# Temp test files
+/tmp/chronos_e2e_testfile
