@@ -15,7 +15,7 @@ layer to restore bit-exact pre-infection file state.
 > [!IMPORTANT]  
 > Every pattern here comes from a real decision made under real
 > constraints. Architecture decisions live in
-> `docs/01-documentation/adrs/` (one ADR per decision). This README is the
+> `docs/adrs/` (one ADR per decision). This README is the
 > living navigation index, not a duplicate of decision bodies.
 
 This is not a generic list of "best practices." If an architecture choice
@@ -31,8 +31,9 @@ is documented here, it is backed by an ADR and an implementation layer.
 | **Userspace Orchestration Layer** | `go/` | Async Go daemon: ringbuf consumer, BLAKE3 Merkle verification, surgical `pwrite` extent splicing, telemetry |
 | **Formal Verification Layer** | `lean/` | Lean 4 CoW state-transition machine, Crash-Consistent Rollback Invariant (0 sorry target) |
 | **Evaluation Layer** | `eval/` | TPC-C / YCSB benchmarks, ransomware simulators (LockBit 3.0, BlackCat/ALPHV, Akira), results |
-| **Architecture Decisions** | `docs/01-documentation/adrs/` | ADR-001…006: constraints, options, decision, consequences |
+| **Architecture Decisions** | `docs/adrs/` | ADR-001…006: constraints, options, decision, consequences |
 | **Scripts** | `scripts/` | Environment setup (Ubuntu 22.04, Linux 6.2) |
+| **Postmortems** | `docs/postmortems/` | Failure stories and lessons learned (template only until a real incident occurs) |
 
 ---
 
