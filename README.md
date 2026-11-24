@@ -33,6 +33,7 @@ is documented here, it is backed by an ADR and an implementation layer.
 | **Evaluation Layer** | `eval/` | TPC-C / YCSB benchmarks, ransomware simulators (LockBit 3.0, BlackCat/ALPHV, Akira), results |
 | **Architecture Decisions** | `docs/adrs/` | ADR-001…006: constraints, options, decision, consequences |
 | **Scripts** | `scripts/` | Environment setup (Ubuntu 22.04, Linux 6.2) |
+| **Postmortems** | `docs/postmortems/` | Failure stories and lessons learned (template only until a real incident occurs) |
 
 ---
 
